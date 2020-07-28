@@ -10,6 +10,7 @@ def main():
         nmsg=codes_count_in_file(f)
         print(f"number of message {nmsg}")
         f.close()
+        print("the end")
 
 
 if __name__=="__main__":
