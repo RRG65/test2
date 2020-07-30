@@ -9,6 +9,14 @@ def main():
         f=open(fname,"rb")
         nmsg=codes_count_in_file(f)
         print(f"number of message {nmsg}")
+        k=1
+        for i in range(nmsg):
+            bid=codes_bufr_new_from_file(f)
+            codes_set(bid,"unpack",1)
+            airTemp=codes_get(bid,f"#{k}#airTemperature")
+            print(airTemp)
+            codes_release(bid)
+            k+=1
         f.close()
 
 
