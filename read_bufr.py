@@ -13,8 +13,11 @@ def main():
         for i in range(nmsg):
             bid=codes_bufr_new_from_file(f)
             codes_set(bid,"unpack",1)
-            airTemp=codes_get(bid,f"#{k}#airTemperature")
-            print(airTemp)
+            try:
+                airTemp=codes_get(bid,f"#{k}#airTemperature")
+                print(airTemp)
+            except Exception as e:
+                print(e)
             codes_release(bid)
             k+=1
         f.close()
